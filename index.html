@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetic Collective - Advocating for a Cure. Together.</title>
+    
+    <!-- SEO -->
+    <meta name="description" content="Diabetic Collective is a grassroots advocacy effort advancing treatments and cures for Type 1 diabetes. Support the ISLET Act and help make islet transplantation accessible to millions.">
+    <meta name="keywords" content="Type 1 diabetes, ISLET Act, islet transplant, diabetes advocacy, tegoprubart, Eledon Pharmaceuticals, diabetes cure, insulin independence">
+    <meta name="author" content="Diabetic Collective">
+    <link rel="canonical" href="https://diabetic-collective.vercel.app">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Diabetic Collective - Advocating for a Cure. Together.">
+    <meta property="og:description" content="Groundbreaking research is making insulin independence possible. The ISLET Act could make it accessible. Take action now.">
+    <meta property="og:url" content="https://diabetic-collective.vercel.app">
+    <meta property="og:image" content="https://diabetic-collective.vercel.app/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Diabetic Collective">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Diabetic Collective - Advocating for a Cure. Together.">
+    <meta name="twitter:description" content="Groundbreaking research is making insulin independence possible. The ISLET Act could make it accessible. Take action now.">
+    <meta name="twitter:image" content="https://diabetic-collective.vercel.app/og-image.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --teal: #2a7f62;
+            --teal-light: #edf7f2;
+            --teal-dark: #1e6b52;
+            --slate-900: #1a1a2e;
+            --slate-700: #3d3d4e;
+            --slate-500: #7c7c8a;
+            --slate-200: #ddd8cf;
+            --slate-100: #f0ede6;
+            --slate-50: #faf8f4;
+            --white: #ffffff;
+            --cream: #faf8f4;
+            --navy: #1a1a2e;
+            --navy-light: #26293d;
+            --accent: #c44536;
+            --accent-dark: #a33a2d;
+            --accent-light: #fceee9;
+            --coral: #c44536;
+            --sponsor-bg: #fef9e7;
+            --sponsor-border: #b8860b;
+            --red: #DC2626;
+            --blue: #2563EB;
+            --surface: #ffffff;
+            --border: #ddd8cf;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--slate-700);
+            line-height: 1.7;
+            background: var(--cream);
+        }
+
+        h1, h2, h3, .nav-brand {
+            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 248, 244, 0.65);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid transparent;
+            z-index: 100;
+            padding: 0 1.5rem;
+            transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        nav.scrolled {
+            background: rgba(250, 248, 244, 0.95);
+            border-bottom-color: var(--border);
+            box-shadow: 0 1px 16px rgba(0, 0, 0, 0.05);
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 68px;
+        }
+        .nav-brand {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--slate-500);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.25s ease;
+            font-family: 'Outfit', sans-serif;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* ── Sections (general) ── */
+        section { padding: 6rem 1.5rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            font-weight: 900;
+        }
+        h2::before {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 4px;
+            background: var(--accent);
+            margin-bottom: 1rem;
+            border-radius: 2px;
+        }
+        h3 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            padding-top: 12rem;
+            padding-bottom: 8rem;
+            background: linear-gradient(168deg, #faf8f4 0%, #f0ede6 45%, #f3ebe0 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -15%;
+            right: -5%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(42, 127, 98, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            animation: heroFloat 20s ease-in-out infinite;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -8%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196, 69, 54, 0.07) 0%, transparent 70%);
+            pointer-events: none;
+            animation: heroFloat 25s ease-in-out infinite reverse;
+        }
+        .hero h1 {
+            font-size: 5rem;
+            color: var(--navy);
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.035em;
+            line-height: 1.02;
+            font-weight: 900;
+            animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+        }
+        .hero h1::before { display: none; }
+        .hero .tagline {
+            order: -1;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            font-family: 'Outfit', sans-serif;
+            animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+        }
+        .hero p {
+            max-width: 640px;
+            margin: 0 auto 3rem;
+            font-size: 1.15rem;
+            color: var(--slate-700);
+            line-height: 1.85;
+            animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 16px rgba(196, 69, 54, 0.3);
+            animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+        }
+        .btn:hover {
+            background: var(--accent-dark);
+            box-shadow: 0 6px 24px rgba(196, 69, 54, 0.35);
+            transform: translateY(-2px);
+        }
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(196, 69, 54, 0.3);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 16px rgba(196, 69, 54, 0.3);
+        }
+
+        /* ── Cards ── */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.75rem;
+            margin-top: 2.5rem;
+        }
+        .card {
+            background: var(--surface);
+            border: none;
+            border-radius: 14px;
+            padding: 2.25rem;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03), 0 6px 20px rgba(0, 0, 0, 0.02);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(0, 0, 0, 0.05);
+            transform: translateY(-3px);
+        }
+        .card h3 { color: var(--teal-dark); }
+
+        /* ── Science ── */
+        .science { background: var(--slate-100); }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .stat {
+            text-align: center;
+            padding: 2.25rem 1.5rem;
+            background: var(--surface);
+            border-radius: 14px;
+            border: none;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .stat:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+        .stat .number {
+            font-size: 3.25rem;
+            font-weight: 900;
+            color: var(--accent);
+            font-family: 'Fraunces', Georgia, serif;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+        .stat .label {
+            font-size: 0.88rem;
+            color: var(--slate-500);
+            margin-top: 0.6rem;
+            line-height: 1.45;
+        }
+
+        /* ── ISLET Act (dark section) ── */
+        .islet-act {
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        .islet-act::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 15% 0%, rgba(42, 127, 98, 0.14), transparent 50%),
+                radial-gradient(ellipse at 85% 100%, rgba(196, 69, 54, 0.09), transparent 50%);
+            pointer-events: none;
+        }
+        .islet-act .container { position: relative; z-index: 1; }
+        .islet-act h2 { color: #fff; }
+        .islet-act h2::before { background: var(--accent); }
+        .islet-act h3 { color: rgba(255, 255, 255, 0.95); }
+        .islet-act p { color: rgba(255, 255, 255, 0.75); }
+        .islet-act strong { color: rgba(255, 255, 255, 0.95); }
+        .islet-act .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+            border-left-color: transparent;
+            box-shadow: none;
+        }
+        .islet-act .card:hover {
+            background: rgba(255, 255, 255, 0.09);
+            transform: translateY(-3px);
+        }
+        .islet-act .card h3 { color: rgba(255, 255, 255, 0.95); }
+        .islet-act .card p { color: rgba(255, 255, 255, 0.7); }
+
+        /* ── Timeline ── */
+        .timeline {
+            border-left: 3px solid var(--accent);
+            padding-left: 2.25rem;
+            margin-top: 2.5rem;
+        }
+        .islet-act .timeline { border-left-color: rgba(196, 69, 54, 0.6); }
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+            padding: 0.15rem 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 0.45rem;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(196, 69, 54, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+        .timeline-item:hover::before {
+            box-shadow: 0 0 0 8px rgba(196, 69, 54, 0.15);
+        }
+        .timeline-item strong { color: var(--navy); }
+        .islet-act .timeline-item strong { color: #fff; }
+        .islet-act .timeline-item::before {
+            box-shadow: 0 0 0 4px rgba(196, 69, 54, 0.3);
+        }
+
+        /* ── Take Action ── */
+        .take-action {
+            background: linear-gradient(170deg, var(--accent-light) 0%, #fdf6f0 100%);
+        }
+        .message-template {
+            background: var(--surface);
+            border: none;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            position: relative;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03), 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+        .message-template pre {
+            white-space: pre-wrap;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.93rem;
+            line-height: 1.85;
+            color: var(--slate-700);
+        }
+        .copy-btn {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            font-size: 0.7rem;
+            padding: 0.65rem 1.25rem;
+        }
+        .copy-btn.copied {
+            background: #16a34a;
+            box-shadow: 0 2px 8px rgba(22, 163, 74, 0.3);
+        }
+
+        /* ── Email Tabs ── */
+        .email-tabs {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .email-tabs::-webkit-scrollbar { display: none; }
+        .email-tab {
+            padding: 0.7rem 1.25rem;
+            border: 2px solid var(--border);
+            border-bottom: none;
+            border-radius: 12px 12px 0 0;
+            background: var(--slate-50);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            color: var(--slate-500);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .email-tab:hover {
+            color: var(--slate-700);
+            background: var(--slate-100);
+        }
+        .email-tab.active {
+            background: var(--surface);
+            color: var(--teal);
+            border-color: var(--teal);
+            position: relative;
+        }
+        .email-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--surface);
+        }
+        .message-template.tabbed {
+            border-top-left-radius: 0;
+            border-top: 2px solid var(--teal);
+        }
+
+        /* ── Senator Section ── */
+        .senators { background: var(--slate-100); }
+        .search-box {
+            width: 100%;
+            max-width: 440px;
+            padding: 0.9rem 1.25rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 1.5rem;
+            outline: none;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+            background: var(--surface);
+            color: var(--slate-700);
+        }
+        .search-box:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(42, 127, 98, 0.1);
+        }
+        .search-box::placeholder { color: var(--slate-500); }
+
+        .filter-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.2rem;
+            border: 2px solid var(--border);
+            border-radius: 100px;
+            background: var(--surface);
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-family: 'Outfit', sans-serif;
+            color: var(--slate-700);
+            transition: all 0.25s ease;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--teal);
+            color: var(--white);
+            border-color: var(--teal);
+            box-shadow: 0 2px 8px rgba(42, 127, 98, 0.2);
+        }
+
+        .senator-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03), 0 8px 24px rgba(0, 0, 0, 0.03);
+        }
+        .senator-table thead {
+            background: var(--navy);
+            color: var(--white);
+        }
+        .senator-table th {
+            padding: 1rem 1.15rem;
+            text-align: left;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-family: 'Outfit', sans-serif;
+        }
+        .senator-table td {
+            padding: 0.85rem 1.15rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            font-size: 0.9rem;
+            vertical-align: middle;
+        }
+        .senator-table tr:last-child td { border-bottom: none; }
+        .senator-table tbody tr { transition: background 0.2s ease; }
+        .senator-table tbody tr:hover { background: var(--accent-light); }
+        .senator-table tr.help-committee { background: var(--teal-light); }
+        .senator-table tr.help-committee:hover { background: #daf0ea; }
+        .senator-table tr.sponsor { background: var(--sponsor-bg); }
+        .senator-table tr.sponsor:hover { background: #fef5cc; }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.2;
+        }
+        .badge-help {
+            background: var(--teal-light);
+            color: var(--teal-dark);
+        }
+        .badge-chair {
+            background: var(--teal);
+            color: var(--white);
+        }
+        .badge-sponsor {
+            background: var(--sponsor-border);
+            color: var(--white);
+        }
+        .badge-r { color: var(--red); }
+        .badge-d { color: var(--blue); }
+        .badge-i { color: #7c3aed; }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 0.4rem 0.9rem;
+            background: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+        .contact-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(196, 69, 54, 0.25);
+        }
+
+        .phone-link {
+            color: var(--slate-700);
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.2s ease;
+        }
+        .phone-link:hover { color: var(--teal); }
+
+        .result-count {
+            font-size: 0.82rem;
+            color: var(--slate-500);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 4.5rem 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(196, 69, 54, 0.06), transparent 60%);
+            pointer-events: none;
+        }
+        footer .container { position: relative; z-index: 1; }
+        footer strong {
+            font-family: 'Fraunces', serif !important;
+            font-size: 1.4rem !important;
+            color: rgba(255, 255, 255, 0.95);
+            display: block;
+            letter-spacing: -0.02em;
+        }
+        footer a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            transition: color 0.25s ease;
+            font-weight: 500;
+        }
+        footer a:hover { color: var(--accent); }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+        .disclaimer {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.3);
+            margin-top: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.65;
+        }
+
+        /* ── Scroll Reveal ── */
+        .reveal-el {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-el.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-grid .reveal-el:nth-child(2) { transition-delay: 0.1s; }
+        .card-grid .reveal-el:nth-child(3) { transition-delay: 0.2s; }
+        .stat-grid .reveal-el:nth-child(2) { transition-delay: 0.1s; }
+        .stat-grid .reveal-el:nth-child(3) { transition-delay: 0.2s; }
+        .stat-grid .reveal-el:nth-child(4) { transition-delay: 0.3s; }
+        .timeline .reveal-el:nth-child(2) { transition-delay: 0.1s; }
+        .timeline .reveal-el:nth-child(3) { transition-delay: 0.2s; }
+
+        /* ── Keyframes ── */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes heroFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-15px, 10px) scale(1.04); }
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 768px) {
+            .hero { padding-top: 8.5rem; padding-bottom: 5rem; }
+            .hero h1 { font-size: 2.75rem; }
+            .hero .tagline { font-size: 0.72rem; letter-spacing: 0.18em; }
+            .nav-links { display: none; }
+            section { padding: 3.5rem 1rem; }
+            h2 { font-size: 1.85rem; }
+            .senator-table { font-size: 0.8rem; }
+            .senator-table th, .senator-table td { padding: 0.55rem; }
+            .hide-mobile { display: none; }
+            .card { padding: 1.75rem; }
+            .stat .number { font-size: 2.5rem; }
+            .copy-btn { position: static; margin-bottom: 1.5rem; display: block; width: fit-content; }
+            .email-tab { padding: 0.55rem 0.9rem; font-size: 0.72rem; }
+            .message-template { padding: 1.5rem; }
+            .hero::before, .hero::after { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-brand">Diabetic Collective</a>
+        <ul class="nav-links">
+            <li><a href="#science">The Science</a></li>
+            <li><a href="#islet-act">ISLET Act</a></li>
+            <li><a href="#take-action">Take Action</a></li>
+            <li><a href="#senators">Senators</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>Diabetic Collective</h1>
+        <div class="tagline">Advocating for a cure. Together.</div>
+        <p>We are a grassroots advocacy effort focused on advancing treatments and cures for Type 1 diabetes. Right now, groundbreaking research is showing that insulin independence is possible -- and a bill in Congress could make it accessible to millions.</p>
+        <a href="#take-action" class="btn">Take Action Now</a>
+    </div>
+</section>
+
+<section class="science" id="science">
+    <div class="container">
+        <h2>The Breakthrough</h2>
+        <p>A clinical trial at the University of Chicago is producing results that would have seemed impossible a decade ago: Type 1 diabetes patients achieving complete insulin independence through islet cell transplantation, using a new immunosuppression drug that avoids the harsh side effects of traditional approaches.</p>
+
+        <div class="stat-grid">
+            <div class="stat">
+                <div class="number">6/6</div>
+                <div class="label">Patients achieved insulin independence</div>
+            </div>
+            <div class="stat">
+                <div class="number">&lt;6%</div>
+                <div class="label">HbA1c levels maintained</div>
+            </div>
+            <div class="stat">
+                <div class="number">15+</div>
+                <div class="label">Months of stable blood sugar control</div>
+            </div>
+            <div class="stat">
+                <div class="number">0</div>
+                <div class="label">Severe hypoglycemic episodes</div>
+            </div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3>Tegoprubart (Anti-CD40L)</h3>
+                <p>Developed by Eledon Pharmaceuticals, tegoprubart is an anti-CD40 Ligand antibody that serves as the core of a new immunosuppression regimen. Unlike tacrolimus (the current standard), it does not cause kidney damage, neurological toxicity, or the other serious side effects that have historically made islet transplant a difficult trade-off for patients.</p>
+            </div>
+            <div class="card">
+                <h3>The Trial</h3>
+                <p>The Phase I/II trial at the University of Chicago Medicine's Transplant Institute, initially funded by Breakthrough T1D (formerly JDRF), has been expanded from 6 to 12 subjects. A second study has also been funded for patients with both Type 1 diabetes and chronic kidney disease. All six initial patients achieved insulin independence after one or two islet transplants.</p>
+            </div>
+            <div class="card">
+                <h3>Why It Matters</h3>
+                <p>Traditional immunosuppression with calcineurin inhibitors like tacrolimus comes with serious risks: kidney damage, neurological toxicity, increased infection rates, and thromboembolic events. Tegoprubart has shown none of these side effects in the trial so far, making islet transplantation a far more viable path to a functional cure.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="islet-act" id="islet-act">
+    <div class="container">
+        <h2>The ISLET Act</h2>
+        <p>The <strong>Increase Support for Life-saving Endocrine Transplantation (ISLET) Act</strong> would reclassify human cadaveric islets -- the insulin-producing cells from the pancreas -- from "biologic drugs" to "organs" under the Public Health Service Act. This single change would dramatically improve patient access to islet transplantation.</p>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3>What It Does</h3>
+                <p>Currently, islets are regulated as pharmaceutical products, subjecting them to the same complex approval process as manufactured drugs. The ISLET Act would classify them as organs -- which is what they are -- aligning the US with Canada, the European Union, Australia, and Japan, where islets are already regulated this way.</p>
+            </div>
+            <div class="card">
+                <h3>Why It Matters</h3>
+                <p>Reclassification would reduce regulatory barriers, enable more transplant centers to offer the procedure, simplify the path to insurance coverage, and foster competition and innovation. For patients, it means faster access to a treatment that is already showing remarkable results.</p>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <strong>June 2023</strong> -- ISLET Act first introduced in Congress
+            </div>
+            <div class="timeline-item">
+                <strong>November 2025</strong> -- Reintroduced by Sen. Mike Lee (R-UT) with co-sponsor Sen. Ted Budd (R-NC)
+            </div>
+            <div class="timeline-item">
+                <strong>Current Status</strong> -- Referred to the Senate Committee on Health, Education, Labor, and Pensions (HELP)
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+            <h3>The Administrative Path</h3>
+            <p>Breakthrough T1D has noted that the Department of Health and Human Services (HHS) may already have the authority to reclassify islets without new legislation. Both legislative and administrative approaches could achieve the same goal -- the important thing is that reclassification happens. Advocates should push for whichever path moves faster.</p>
+        </div>
+    </div>
+</section>
+
+<section class="take-action" id="take-action">
+    <div class="container">
+        <h2>Take Action</h2>
+        <p>Contact your senators and urge them to support the ISLET Act. Choose the message that best fits your situation, copy it, find your senator in the table, and paste it into their contact form.</p>
+
+        <div class="email-tabs">
+            <button class="email-tab active" onclick="switchTab('self')">I Have T1D</button>
+            <button class="email-tab" onclick="switchTab('child')">My Child Has T1D</button>
+            <button class="email-tab" onclick="switchTab('spouse')">My Spouse Has T1D</button>
+            <button class="email-tab" onclick="switchTab('friend')">Sibling / Friend Has T1D</button>
+        </div>
+        <div class="message-template tabbed">
+            <button class="btn copy-btn" onclick="copyMessage()">Copy Message</button>
+            <pre id="email-template"></pre>
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--slate-500);">Tip: Senators prioritize messages from their own constituents. Contact your state's senators first. Including your mailing address helps verify you are a constituent.</p>
+    </div>
+</section>
+
+<section class="senators" id="senators">
+    <div class="container">
+        <h2>Contact Your Senators</h2>
+        <p>HELP Committee members are highlighted -- they have the most direct influence on the ISLET Act. Bill sponsors are marked with a gold badge.</p>
+
+        <input type="text" class="search-box" id="senator-search" placeholder="Search by name, state, or party...">
+
+        <div class="filter-group">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="help">HELP Committee</button>
+            <button class="filter-btn" data-filter="R">Republican</button>
+            <button class="filter-btn" data-filter="D">Democrat</button>
+            <button class="filter-btn" data-filter="I">Independent</button>
+        </div>
+
+        <div class="result-count" id="result-count">Showing 100 senators</div>
+
+        <div style="overflow-x: auto;">
+            <table class="senator-table" id="senator-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Party</th>
+                        <th>State</th>
+                        <th class="hide-mobile">Phone</th>
+                        <th>Committee</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="senator-tbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <strong style="font-size: 1.1rem;">Diabetic Collective</strong>
+        <div class="footer-links">
+            <a href="https://eledon.com" target="_blank" rel="noopener">Eledon Pharmaceuticals</a>
+            <a href="https://www.breakthrought1d.org" target="_blank" rel="noopener">Breakthrough T1D</a>
+            <a href="https://www.isletsforus.org/isletact" target="_blank" rel="noopener">Islets for US - ISLET Act</a>
+            <a href="https://www.congress.gov/bill/119th-congress/senate-bill/3105" target="_blank" rel="noopener">Bill Text (Congress.gov)</a>
+        </div>
+        <p class="disclaimer">Diabetic Collective is a grassroots advocacy effort. We are not affiliated with any pharmaceutical company, political party, or lobbying organization. Information on this site is for advocacy and educational purposes only and does not constitute medical advice.</p>
+    </div>
+</footer>
+
+<script>
+const senators = [
+    {name:"Angela Alsobrooks",party:"D",state:"MD",phone:"(202) 224-4524",contact:"https://alsobrooks.senate.gov/",help:true,helpRole:"HELP Committee"},
+    {name:"Tammy Baldwin",party:"D",state:"WI",phone:"(202) 224-5653",contact:"https://www.baldwin.senate.gov/feedback",help:true,helpRole:"HELP Committee"},
+    {name:"Jim Banks",party:"R",state:"IN",phone:"(202) 224-4814",contact:"https://www.banks.senate.gov/",help:true,helpRole:"HELP Committee"},
+    {name:"John Barrasso",party:"R",state:"WY",phone:"(202) 224-6441",contact:"https://www.barrasso.senate.gov/public/index.cfm/contact-form"},
+    {name:"Michael Bennet",party:"D",state:"CO",phone:"(202) 224-5852",contact:"https://www.bennet.senate.gov/public/index.cfm/contact"},
+    {name:"Marsha Blackburn",party:"R",state:"TN",phone:"(202) 224-3344",contact:"https://www.blackburn.senate.gov/email-me"},
+    {name:"Richard Blumenthal",party:"D",state:"CT",phone:"(202) 224-2823",contact:"https://www.blumenthal.senate.gov/contact/"},
+    {name:"Lisa Blunt Rochester",party:"D",state:"DE",phone:"(202) 224-2441",contact:"https://www.bluntrochester.senate.gov/",help:true,helpRole:"HELP Committee"},
+    {name:"Cory Booker",party:"D",state:"NJ",phone:"(202) 224-3224",contact:"https://www.booker.senate.gov/?p=contact"},
+    {name:"John Boozman",party:"R",state:"AR",phone:"(202) 224-4843",contact:"https://www.boozman.senate.gov/public/index.cfm/contact"},
+    {name:"Katie Boyd Britt",party:"R",state:"AL",phone:"(202) 224-5744",contact:"https://www.britt.senate.gov/contact/"},
+    {name:"Ted Budd",party:"R",state:"NC",phone:"(202) 224-3154",contact:"https://www.budd.senate.gov/contact/",sponsor:true},
+    {name:"Maria Cantwell",party:"D",state:"WA",phone:"(202) 224-3441",contact:"https://www.cantwell.senate.gov/public/index.cfm/email-maria"},
+    {name:"Shelley Moore Capito",party:"R",state:"WV",phone:"(202) 224-6472",contact:"https://www.capito.senate.gov/contact/contact-shelley"},
+    {name:"Bill Cassidy",party:"R",state:"LA",phone:"(202) 224-5824",contact:"https://www.cassidy.senate.gov/contact",help:true,helpRole:"Chair"},
+    {name:"Susan Collins",party:"R",state:"ME",phone:"(202) 224-2523",contact:"https://www.collins.senate.gov/contact",help:true,helpRole:"HELP Committee"},
+    {name:"Christopher Coons",party:"D",state:"DE",phone:"(202) 224-5042",contact:"https://www.coons.senate.gov/contact"},
+    {name:"John Cornyn",party:"R",state:"TX",phone:"(202) 224-2934",contact:"https://www.cornyn.senate.gov/contact"},
+    {name:"Catherine Cortez Masto",party:"D",state:"NV",phone:"(202) 224-3542",contact:"https://www.cortezmasto.senate.gov/contact"},
+    {name:"Tom Cotton",party:"R",state:"AR",phone:"(202) 224-2353",contact:"https://www.cotton.senate.gov/contact/contact-tom"},
+    {name:"Kevin Cramer",party:"R",state:"ND",phone:"(202) 224-2043",contact:"https://www.cramer.senate.gov/contact/contact-kevin"},
+    {name:"Mike Crapo",party:"R",state:"ID",phone:"(202) 224-6142",contact:"https://www.crapo.senate.gov/contact"},
+    {name:"Ted Cruz",party:"R",state:"TX",phone:"(202) 224-5922",contact:"https://www.cruz.senate.gov/?p=form&id=16"},
+    {name:"John Curtis",party:"R",state:"UT",phone:"(202) 224-5251",contact:"https://www.curtis.senate.gov/"},
+    {name:"Steve Daines",party:"R",state:"MT",phone:"(202) 224-2651",contact:"https://www.daines.senate.gov/connect/email-steve"},
+    {name:"Tammy Duckworth",party:"D",state:"IL",phone:"(202) 224-2854",contact:"https://www.duckworth.senate.gov/content/contact-senator"},
+    {name:"Richard Durbin",party:"D",state:"IL",phone:"(202) 224-2152",contact:"https://www.durbin.senate.gov/contact/"},
+    {name:"Joni Ernst",party:"R",state:"IA",phone:"(202) 224-3254",contact:"https://www.ernst.senate.gov/public/index.cfm/contact"},
+    {name:"John Fetterman",party:"D",state:"PA",phone:"(202) 224-4254",contact:"https://www.fetterman.senate.gov/contact/"},
+    {name:"Deb Fischer",party:"R",state:"NE",phone:"(202) 224-6551",contact:"https://www.fischer.senate.gov/public/index.cfm/contact"},
+    {name:"Ruben Gallego",party:"D",state:"AZ",phone:"(202) 224-4521",contact:"https://www.gallego.senate.gov/"},
+    {name:"Kirsten Gillibrand",party:"D",state:"NY",phone:"(202) 224-4451",contact:"https://www.gillibrand.senate.gov/contact/email-me"},
+    {name:"Lindsey Graham",party:"R",state:"SC",phone:"(202) 224-5972",contact:"https://www.lgraham.senate.gov/public/index.cfm/e-mail-senator-graham"},
+    {name:"Chuck Grassley",party:"R",state:"IA",phone:"(202) 224-3744",contact:"https://www.grassley.senate.gov/contact"},
+    {name:"Bill Hagerty",party:"R",state:"TN",phone:"(202) 224-4944",contact:"https://www.hagerty.senate.gov/email-me/"},
+    {name:"Maggie Hassan",party:"D",state:"NH",phone:"(202) 224-3324",contact:"https://www.hassan.senate.gov/content/contact-senator",help:true,helpRole:"HELP Committee"},
+    {name:"Josh Hawley",party:"R",state:"MO",phone:"(202) 224-6154",contact:"https://www.hawley.senate.gov/contact-senator-hawley",help:true,helpRole:"HELP Committee"},
+    {name:"Martin Heinrich",party:"D",state:"NM",phone:"(202) 224-5521",contact:"https://www.heinrich.senate.gov/contact"},
+    {name:"John Hickenlooper",party:"D",state:"CO",phone:"(202) 224-5941",contact:"https://www.hickenlooper.senate.gov/contact/",help:true,helpRole:"HELP Committee"},
+    {name:"Mazie Hirono",party:"D",state:"HI",phone:"(202) 224-6361",contact:"https://www.hirono.senate.gov/contact"},
+    {name:"John Hoeven",party:"R",state:"ND",phone:"(202) 224-2551",contact:"https://www.hoeven.senate.gov/contact/contact-the-senator"},
+    {name:"Jon Husted",party:"R",state:"OH",phone:"(202) 224-3353",contact:"https://www.husted.senate.gov",help:true,helpRole:"HELP Committee"},
+    {name:"Cindy Hyde-Smith",party:"R",state:"MS",phone:"(202) 224-5054",contact:"https://www.hydesmith.senate.gov/contact-senator"},
+    {name:"Ron Johnson",party:"R",state:"WI",phone:"(202) 224-5323",contact:"https://www.ronjohnson.senate.gov/public/index.cfm/email-the-senator"},
+    {name:"James Justice",party:"R",state:"WV",phone:"(202) 224-3954",contact:"https://www.justice.senate.gov/"},
+    {name:"Tim Kaine",party:"D",state:"VA",phone:"(202) 224-4024",contact:"https://www.kaine.senate.gov/contact",help:true,helpRole:"HELP Committee"},
+    {name:"Mark Kelly",party:"D",state:"AZ",phone:"(202) 224-2235",contact:"https://www.kelly.senate.gov/contact/contact-form/"},
+    {name:"John Kennedy",party:"R",state:"LA",phone:"(202) 224-4623",contact:"https://www.kennedy.senate.gov/public/email-me"},
+    {name:"Andy Kim",party:"D",state:"NJ",phone:"(202) 224-4744",contact:"https://www.kim.senate.gov/",help:true,helpRole:"HELP Committee"},
+    {name:"Angus King",party:"I",state:"ME",phone:"(202) 224-5344",contact:"https://www.king.senate.gov/contact"},
+    {name:"Amy Klobuchar",party:"D",state:"MN",phone:"(202) 224-3244",contact:"https://www.klobuchar.senate.gov/public/index.cfm/contact"},
+    {name:"James Lankford",party:"R",state:"OK",phone:"(202) 224-5754",contact:"https://www.lankford.senate.gov/contact/email"},
+    {name:"Mike Lee",party:"R",state:"UT",phone:"(202) 224-5444",contact:"https://www.lee.senate.gov/public/index.cfm/contact",sponsor:true},
+    {name:"Ben Ray Lujan",party:"D",state:"NM",phone:"(202) 224-6621",contact:"https://www.lujan.senate.gov/contact/"},
+    {name:"Cynthia Lummis",party:"R",state:"WY",phone:"(202) 224-3424",contact:"https://www.lummis.senate.gov/contact/contact-form/"},
+    {name:"Ed Markey",party:"D",state:"MA",phone:"(202) 224-2742",contact:"https://www.markey.senate.gov/contact",help:true,helpRole:"HELP Committee"},
+    {name:"Roger Marshall",party:"R",state:"KS",phone:"(202) 224-4774",contact:"https://www.marshall.senate.gov/contact/",help:true,helpRole:"HELP Committee"},
+    {name:"Mitch McConnell",party:"R",state:"KY",phone:"(202) 224-2541",contact:"https://www.mcconnell.senate.gov/public/index.cfm?p=contact"},
+    {name:"David McCormick",party:"R",state:"PA",phone:"(202) 224-6324",contact:"https://mccormick.senate.gov/"},
+    {name:"Jeff Merkley",party:"D",state:"OR",phone:"(202) 224-3753",contact:"https://www.merkley.senate.gov/contact/"},
+    {name:"Ashley Moody",party:"R",state:"FL",phone:"(202) 224-3041",contact:"https://www.moody.senate.gov",help:true,helpRole:"HELP Committee"},
+    {name:"Jerry Moran",party:"R",state:"KS",phone:"(202) 224-6521",contact:"https://www.moran.senate.gov/public/index.cfm/e-mail-jerry"},
+    {name:"Bernie Moreno",party:"R",state:"OH",phone:"(202) 224-2315",contact:"https://www.moreno.senate.gov"},
+    {name:"Markwayne Mullin",party:"R",state:"OK",phone:"(202) 224-4721",contact:"https://www.mullin.senate.gov/contact/",help:true,helpRole:"HELP Committee"},
+    {name:"Lisa Murkowski",party:"R",state:"AK",phone:"(202) 224-6665",contact:"https://www.murkowski.senate.gov/public/index.cfm/contact",help:true,helpRole:"HELP Committee"},
+    {name:"Chris Murphy",party:"D",state:"CT",phone:"(202) 224-4041",contact:"https://www.murphy.senate.gov/contact",help:true,helpRole:"HELP Committee"},
+    {name:"Patty Murray",party:"D",state:"WA",phone:"(202) 224-2621",contact:"https://www.murray.senate.gov/write-to-patty/",help:true,helpRole:"HELP Committee"},
+    {name:"Jon Ossoff",party:"D",state:"GA",phone:"(202) 224-3521",contact:"https://www.ossoff.senate.gov/contact-us/"},
+    {name:"Alex Padilla",party:"D",state:"CA",phone:"(202) 224-3553",contact:"https://www.padilla.senate.gov/contact/"},
+    {name:"Rand Paul",party:"R",state:"KY",phone:"(202) 224-4343",contact:"https://www.paul.senate.gov/connect/email-rand",help:true,helpRole:"HELP Committee"},
+    {name:"Gary Peters",party:"D",state:"MI",phone:"(202) 224-6221",contact:"https://www.peters.senate.gov/contact/email-gary"},
+    {name:"Jack Reed",party:"D",state:"RI",phone:"(202) 224-4642",contact:"https://www.reed.senate.gov/contact/"},
+    {name:"Pete Ricketts",party:"R",state:"NE",phone:"(202) 224-4224",contact:"https://www.ricketts.senate.gov/contact/"},
+    {name:"James Risch",party:"R",state:"ID",phone:"(202) 224-2752",contact:"https://www.risch.senate.gov/public/index.cfm?p=Email"},
+    {name:"Jacky Rosen",party:"D",state:"NV",phone:"(202) 224-6244",contact:"https://www.rosen.senate.gov/contact_jacky"},
+    {name:"Mike Rounds",party:"R",state:"SD",phone:"(202) 224-5842",contact:"https://www.rounds.senate.gov/contact/email-mike"},
+    {name:"Bernie Sanders",party:"I",state:"VT",phone:"(202) 224-5141",contact:"https://www.sanders.senate.gov/contact/",help:true,helpRole:"Ranking Member"},
+    {name:"Brian Schatz",party:"D",state:"HI",phone:"(202) 224-3934",contact:"https://www.schatz.senate.gov/contact"},
+    {name:"Adam Schiff",party:"D",state:"CA",phone:"(202) 224-3841",contact:"https://www.schiff.senate.gov"},
+    {name:"Eric Schmitt",party:"R",state:"MO",phone:"(202) 224-5721",contact:"https://www.schmitt.senate.gov/contact/"},
+    {name:"Chuck Schumer",party:"D",state:"NY",phone:"(202) 224-6542",contact:"https://www.schumer.senate.gov/contact/email-chuck"},
+    {name:"Rick Scott",party:"R",state:"FL",phone:"(202) 224-5274",contact:"https://www.rickscott.senate.gov/contact/contact"},
+    {name:"Tim Scott",party:"R",state:"SC",phone:"(202) 224-6121",contact:"https://www.scott.senate.gov/contact/email-me",help:true,helpRole:"HELP Committee"},
+    {name:"Jeanne Shaheen",party:"D",state:"NH",phone:"(202) 224-2841",contact:"https://www.shaheen.senate.gov/contact/contact-jeanne"},
+    {name:"Tim Sheehy",party:"R",state:"MT",phone:"(202) 224-2644",contact:"https://www.sheehy.senate.gov/"},
+    {name:"Elissa Slotkin",party:"D",state:"MI",phone:"(202) 224-4822",contact:"https://www.slotkin.senate.gov/"},
+    {name:"Tina Smith",party:"D",state:"MN",phone:"(202) 224-5641",contact:"https://www.smith.senate.gov/share-your-opinion/"},
+    {name:"Dan Sullivan",party:"R",state:"AK",phone:"(202) 224-3004",contact:"https://www.sullivan.senate.gov/contact/email"},
+    {name:"John Thune",party:"R",state:"SD",phone:"(202) 224-2321",contact:"https://www.thune.senate.gov/public/index.cfm/contact"},
+    {name:"Thom Tillis",party:"R",state:"NC",phone:"(202) 224-6342",contact:"https://www.tillis.senate.gov/public/index.cfm/email-me"},
+    {name:"Tommy Tuberville",party:"R",state:"AL",phone:"(202) 224-4124",contact:"https://www.tuberville.senate.gov/contact/contact-form/",help:true,helpRole:"HELP Committee"},
+    {name:"Chris Van Hollen",party:"D",state:"MD",phone:"(202) 224-4654",contact:"https://www.vanhollen.senate.gov/contact/email"},
+    {name:"Mark Warner",party:"D",state:"VA",phone:"(202) 224-2023",contact:"https://www.warner.senate.gov/public/index.cfm?p=Contact"},
+    {name:"Raphael Warnock",party:"D",state:"GA",phone:"(202) 224-3643",contact:"https://www.warnock.senate.gov/contact/"},
+    {name:"Elizabeth Warren",party:"D",state:"MA",phone:"(202) 224-4543",contact:"https://www.warren.senate.gov/contact/shareyouropinion"},
+    {name:"Peter Welch",party:"D",state:"VT",phone:"(202) 224-4242",contact:"https://www.welch.senate.gov/contact/"},
+    {name:"Sheldon Whitehouse",party:"D",state:"RI",phone:"(202) 224-2921",contact:"https://www.whitehouse.senate.gov/contact/email-jack"},
+    {name:"Roger Wicker",party:"R",state:"MS",phone:"(202) 224-6253",contact:"https://www.wicker.senate.gov/contact/"},
+    {name:"Ron Wyden",party:"D",state:"OR",phone:"(202) 224-5244",contact:"https://www.wyden.senate.gov/contact/"},
+    {name:"Todd Young",party:"R",state:"IN",phone:"(202) 224-5623",contact:"https://www.young.senate.gov/contact/"}
+];
+
+let currentFilter = 'all';
+
+function renderTable(searchTerm = '') {
+    const tbody = document.getElementById('senator-tbody');
+    const search = searchTerm.toLowerCase();
+
+    // Sort: sponsors first, then HELP committee, then alphabetical
+    const sorted = [...senators].sort((a, b) => {
+        if (a.sponsor && !b.sponsor) return -1;
+        if (!a.sponsor && b.sponsor) return 1;
+        if (a.help && !b.help) return -1;
+        if (!a.help && b.help) return 1;
+        return a.name.localeCompare(b.name);
+    });
+
+    const filtered = sorted.filter(s => {
+        const matchesSearch = !search ||
+            s.name.toLowerCase().includes(search) ||
+            s.state.toLowerCase().includes(search) ||
+            s.party.toLowerCase().includes(search);
+
+        const matchesFilter = currentFilter === 'all' ||
+            (currentFilter === 'help' && s.help) ||
+            s.party === currentFilter;
+
+        return matchesSearch && matchesFilter;
+    });
+
+    document.getElementById('result-count').textContent = `Showing ${filtered.length} senator${filtered.length !== 1 ? 's' : ''}`;
+
+    tbody.innerHTML = filtered.map(s => {
+        let rowClass = '';
+        if (s.sponsor) rowClass = 'sponsor';
+        else if (s.help) rowClass = 'help-committee';
+
+        let badges = '';
+        if (s.sponsor) badges += ' <span class="badge badge-sponsor">Sponsor</span>';
+        if (s.helpRole === 'Chair') badges += ' <span class="badge badge-chair">HELP Chair</span>';
+        else if (s.helpRole === 'Ranking Member') badges += ' <span class="badge badge-chair">Ranking Member</span>';
+        else if (s.help) badges += ' <span class="badge badge-help">HELP Committee</span>';
+
+        const partyClass = s.party === 'R' ? 'badge-r' : s.party === 'D' ? 'badge-d' : 'badge-i';
+
+        return `<tr class="${rowClass}" data-party="${s.party}" data-help="${s.help || false}">
+            <td><strong>${s.name}</strong>${badges}</td>
+            <td><span class="${partyClass}" style="font-weight:700">${s.party}</span></td>
+            <td>${s.state}</td>
+            <td class="hide-mobile"><a href="tel:${s.phone.replace(/[^\d+]/g,'')}" class="phone-link">${s.phone}</a></td>
+            <td>${s.help ? s.helpRole : '--'}</td>
+            <td><a href="${s.contact}" target="_blank" rel="noopener" class="contact-btn">Contact</a></td>
+        </tr>`;
+    }).join('');
+}
+
+// Email templates by relationship
+const emailTemplates = {
+    self: `Dear Senator,
+
+I am writing to you as someone who lives with Type 1 diabetes every single day. Since my diagnosis, my life has revolved around insulin injections, blood sugar monitoring, and the constant fear of dangerous lows and highs. I am asking you to support the ISLET Act (Increase Support for Life-saving Endocrine Transplantation Act).
+
+This bill would reclassify human cadaveric islets from "biologic drugs" to "organs" under the Public Health Service Act -- a change that could open the door to a functional cure for people like me.
+
+Living with T1D means I cannot go a single day without insulin. A missed dose or a pump malfunction can land me in the emergency room -- or worse. I calculate carbs at every meal, set alarms through the night, and carry supplies everywhere I go. It is exhausting, and it never stops.
+
+Islet transplantation is already helping patients achieve complete insulin independence, with clinical results showing HbA1c levels below 6% for over 15 months. Countries like Canada, the EU, Australia, and Japan already classify islets as organs. The United States should do the same.
+
+Reclassification would remove unnecessary regulatory barriers and simplify insurance coverage, giving the 1.6 million Americans living with T1D a real chance at a life free from insulin dependence.
+
+I respectfully ask that you co-sponsor the ISLET Act and advocate for its passage in the Senate HELP Committee. This is not a partisan issue -- it is about giving patients like me access to a treatment that works.
+
+Thank you for your time and consideration.
+
+Sincerely,
+[Your Name]
+[Your Address]`,
+
+    child: `Dear Senator,
+
+I am writing to you as a parent of a child with Type 1 diabetes. When my child was diagnosed, our entire family's life changed overnight. I am asking you to support the ISLET Act (Increase Support for Life-saving Endocrine Transplantation Act).
+
+No parent should have to check on their sleeping child multiple times a night to make sure their blood sugar has not dropped to a dangerous level. No child should have to leave class to test their glucose, count every carb at lunch, or explain to friends why they wear a medical device on their body. But that is our reality, every single day.
+
+My child did not choose this disease, and there is nothing they can do to make it go away. They depend on insulin to survive -- not because of lifestyle choices, but because their immune system destroyed the cells that produce it. They are brave, but they deserve better than a lifetime of managing a disease that science is showing can be effectively treated.
+
+Islet transplantation is producing remarkable results, with patients achieving complete insulin independence and maintaining HbA1c levels below 6% for over 15 months. But the current classification of islets as "biologic drugs" creates unnecessary barriers. Canada, the EU, Australia, and Japan already classify islets as organs. The United States should catch up.
+
+The ISLET Act would reclassify islets, remove regulatory hurdles, and simplify insurance pathways -- bringing this treatment within reach for the 1.6 million Americans living with T1D, including my child.
+
+I respectfully ask that you co-sponsor the ISLET Act and champion its passage through the Senate HELP Committee. As a parent, I am asking you to help give my child a future where they do not have to fight this disease every hour of every day.
+
+Thank you for your time and consideration.
+
+Sincerely,
+[Your Name]
+[Your Address]`,
+
+    spouse: `Dear Senator,
+
+I am writing to you as the spouse of someone living with Type 1 diabetes. I have watched the person I love battle this disease every day, and I am asking you to support the ISLET Act (Increase Support for Life-saving Endocrine Transplantation Act).
+
+Most people do not see what T1D really looks like behind closed doors. I do. I see my spouse wake up shaking from a low blood sugar at 3 AM. I see them calculate and recalculate doses before every meal. I have driven them to the emergency room when their levels crashed. I carry glucose tabs in my pocket just in case. The worry never stops -- for either of us.
+
+Type 1 diabetes is not just a condition my spouse manages alone. It affects our entire life together -- our finances, our plans, our peace of mind. The cost of insulin and supplies is staggering, and the mental toll of 24/7 disease management weighs on our family constantly.
+
+But there is real hope. Islet transplantation is showing remarkable results, with patients achieving complete insulin independence and maintaining HbA1c levels below 6% for over 15 months. The ISLET Act would reclassify human cadaveric islets from "biologic drugs" to "organs," removing unnecessary regulatory barriers and simplifying insurance coverage.
+
+Canada, the EU, Australia, and Japan already classify islets as organs. The United States should align with these international standards and give the 1.6 million Americans living with T1D -- and the families who stand beside them -- a real path forward.
+
+I respectfully ask that you co-sponsor the ISLET Act and advocate for its passage in the Senate HELP Committee. This is not a partisan issue -- it is about giving families like mine hope for a better future.
+
+Thank you for your time and consideration.
+
+Sincerely,
+[Your Name]
+[Your Address]`,
+
+    friend: `Dear Senator,
+
+I am writing to you because someone I care deeply about -- a close friend and someone I consider family -- lives with Type 1 diabetes. I have seen firsthand what this disease demands, and I am asking you to support the ISLET Act (Increase Support for Life-saving Endocrine Transplantation Act).
+
+From the outside, people with T1D can look perfectly healthy. But I have seen what others do not -- the constant glucose monitoring, the insulin calculations before every meal, the moments of panic when blood sugar drops dangerously low. I have watched someone I care about push through exhaustion because their levels were unstable all night. I have seen them weigh whether they can afford their insulin this month.
+
+Type 1 diabetes is an autoimmune disease that no one chooses and no one can prevent. It requires around-the-clock management just to survive. But real progress is being made. Islet transplantation is showing remarkable clinical results, with patients achieving complete insulin independence and maintaining HbA1c levels below 6% for over 15 months.
+
+The problem is access. Right now, islets are classified as "biologic drugs," which creates unnecessary regulatory barriers. The ISLET Act would reclassify them as "organs" -- the same standard used in Canada, the EU, Australia, and Japan. This would simplify insurance coverage and open the door for the 1.6 million Americans living with T1D.
+
+I respectfully ask that you co-sponsor the ISLET Act and advocate for its passage in the Senate HELP Committee. You do not have to live with T1D to understand that when a treatment works, patients should be able to access it. This is not a partisan issue -- it is a human one.
+
+Thank you for your time and consideration.
+
+Sincerely,
+[Your Name]
+[Your Address]`
+};
+
+function switchTab(tab) {
+    document.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector(`.email-tab[onclick="switchTab('${tab}')"]`).classList.add('active');
+    document.getElementById('email-template').textContent = emailTemplates[tab];
+    // Reset copy button if it was in "copied" state
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = 'Copy Message';
+    btn.classList.remove('copied');
+}
+
+// Initialize with default tab
+switchTab('self');
+
+function copyMessage() {
+    const text = document.getElementById('email-template').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = 'Copy Message';
+            btn.classList.remove('copied');
+        }, 2000);
+    });
+}
+
+// Search
+document.getElementById('senator-search').addEventListener('input', function() {
+    renderTable(this.value);
+});
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentFilter = this.dataset.filter;
+        renderTable(document.getElementById('senator-search').value);
+    });
+});
+
+// Initial render
+renderTable();
+
+// ── Nav scroll effect ──
+window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ── Scroll reveal ──
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.science, .islet-act, .take-action, .senators').forEach(section => {
+    const h2 = section.querySelector('h2');
+    if (h2) { h2.classList.add('reveal-el'); revealObserver.observe(h2); }
+});
+document.querySelectorAll('.stat, .card, .timeline-item, .message-template').forEach(el => {
+    el.classList.add('reveal-el');
+    revealObserver.observe(el);
+});
+</script>
+
+</body>
+</html>
