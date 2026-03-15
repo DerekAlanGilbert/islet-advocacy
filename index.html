@@ -163,8 +163,14 @@
         /* ── Hero ── */
         .hero {
             padding-top: 12rem;
-            padding-bottom: 8rem;
-            background: linear-gradient(168deg, #faf8f4 0%, #f0ede6 45%, #f3ebe0 100%);
+            padding-bottom: 10rem;
+            background:
+                radial-gradient(ellipse 80% 50% at 80% 15%, rgba(42, 127, 98, 0.10) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 70% at 5% 85%, rgba(42, 127, 98, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 85% 75%, rgba(196, 69, 54, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 40% at 25% 25%, rgba(196, 69, 54, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse 100% 60% at 50% 50%, rgba(42, 127, 98, 0.03) 0%, transparent 80%),
+                linear-gradient(175deg, #fdfcf9 0%, #f5f0e8 30%, #eef6f2 55%, #f5ece4 100%);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -174,31 +180,101 @@
             flex-direction: column;
             align-items: center;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
         .hero::before {
             content: '';
             position: absolute;
-            top: -15%;
-            right: -5%;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(42, 127, 98, 0.1) 0%, transparent 70%);
+            top: -10%;
+            right: -8%;
+            width: 600px;
+            height: 600px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: linear-gradient(135deg, rgba(42, 127, 98, 0.14) 0%, rgba(42, 127, 98, 0.02) 100%);
+            filter: blur(40px);
             pointer-events: none;
-            animation: heroFloat 20s ease-in-out infinite;
+            animation: heroBlobA 20s ease-in-out infinite;
         }
         .hero::after {
             content: '';
             position: absolute;
-            bottom: -20%;
-            left: -8%;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(196, 69, 54, 0.07) 0%, transparent 70%);
+            bottom: -15%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+            background: linear-gradient(315deg, rgba(196, 69, 54, 0.10) 0%, rgba(196, 69, 54, 0.02) 100%);
+            filter: blur(40px);
             pointer-events: none;
-            animation: heroFloat 25s ease-in-out infinite reverse;
+            animation: heroBlobB 25s ease-in-out infinite;
+        }
+
+        /* Hero decorative blobs */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .hero-blob {
+            position: absolute;
+            pointer-events: none;
+        }
+        .hero-blob-1 {
+            width: 500px;
+            height: 500px;
+            top: 10%;
+            left: 25%;
+            border-radius: 40% 60% 55% 45% / 50% 35% 65% 50%;
+            background: radial-gradient(circle, rgba(42, 127, 98, 0.08) 0%, rgba(238, 245, 241, 0.04) 50%, transparent 70%);
+            filter: blur(60px);
+            animation: heroBlobC 22s ease-in-out infinite;
+        }
+        .hero-blob-2 {
+            width: 320px;
+            height: 320px;
+            top: 5%;
+            left: 10%;
+            border-radius: 60% 40% 50% 50% / 40% 60% 40% 60%;
+            background: radial-gradient(circle, rgba(26, 26, 46, 0.04) 0%, transparent 70%);
+            filter: blur(50px);
+            animation: heroBlobA 26s ease-in-out infinite reverse;
+        }
+        .hero-blob-3 {
+            width: 380px;
+            height: 380px;
+            bottom: 5%;
+            right: 5%;
+            border-radius: 50% 50% 35% 65% / 65% 35% 55% 45%;
+            background: radial-gradient(circle, rgba(42, 127, 98, 0.06) 0%, rgba(196, 69, 54, 0.03) 40%, transparent 70%);
+            filter: blur(55px);
+            animation: heroBlobD 28s ease-in-out infinite;
+        }
+        .hero-blob-4 {
+            width: 200px;
+            height: 200px;
+            top: 35%;
+            right: 15%;
+            border-radius: 45% 55% 60% 40% / 55% 45% 55% 45%;
+            background: radial-gradient(circle, rgba(196, 69, 54, 0.06) 0%, transparent 70%);
+            filter: blur(45px);
+            animation: heroBlobC 18s ease-in-out infinite reverse;
+        }
+
+        /* Wave transition */
+        .hero-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+            line-height: 0;
+        }
+        .hero-wave svg {
+            display: block;
+            width: 100%;
+            height: 80px;
         }
         .hero h1 {
             font-size: 5rem;
@@ -695,14 +771,32 @@
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes heroFloat {
+        @keyframes heroBlobA {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(-20px, 15px) scale(1.05) rotate(2deg); }
+            66% { transform: translate(10px, -10px) scale(0.97) rotate(-1deg); }
+        }
+        @keyframes heroBlobB {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(15px, -20px) scale(1.04) rotate(-2deg); }
+            66% { transform: translate(-10px, 10px) scale(0.98) rotate(1deg); }
+        }
+        @keyframes heroBlobC {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-15px, 10px) scale(1.04); }
+            50% { transform: translate(12px, -18px) scale(1.06); }
+        }
+        @keyframes heroBlobD {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(-15px, 12px) scale(1.03) rotate(3deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero::before, .hero::after, .hero-blob { animation: none !important; }
         }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
-            .hero { padding-top: 8.5rem; padding-bottom: 5rem; }
+            .hero { padding-top: 8.5rem; padding-bottom: 6rem; }
             .hero h1 { font-size: 2.75rem; }
             .hero .tagline { font-size: 0.72rem; letter-spacing: 0.18em; }
             .nav-links { display: none; }
@@ -717,6 +811,12 @@
             .email-tab { padding: 0.55rem 0.9rem; font-size: 0.72rem; }
             .message-template { padding: 1.5rem; }
             .hero::before, .hero::after { display: none; }
+            .hero-blob { opacity: 0.5; }
+            .hero-blob-1 { width: 300px; height: 300px; }
+            .hero-blob-2 { width: 200px; height: 200px; }
+            .hero-blob-3 { width: 220px; height: 220px; }
+            .hero-blob-4 { width: 150px; height: 150px; }
+            .hero-wave svg { height: 40px; }
         }
     </style>
 </head>
@@ -735,11 +835,22 @@
 </nav>
 
 <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+        <div class="hero-blob hero-blob-4"></div>
+    </div>
     <div class="container">
         <h1>Diabetic Collective</h1>
         <div class="tagline">Advocating for a cure. Together.</div>
         <p>We are a grassroots advocacy effort focused on advancing treatments and cures for Type 1 diabetes. Right now, groundbreaking research is showing that insulin independence is possible -- and a bill in Congress could make it accessible to millions.</p>
         <a href="#take-action" class="btn">Take Action Now</a>
+    </div>
+    <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C180,80 360,100 540,80 C720,60 900,20 1080,40 C1200,52 1340,70 1440,60 L1440,120 L0,120 Z" fill="#f0ede6"/>
+        </svg>
     </div>
 </section>
 
